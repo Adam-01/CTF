@@ -29,5 +29,5 @@ rsatool.py -o private.pem -p 275127860351348928173285174381581152299 -q 31957631
 
 3. 解密文件
 ```bash
-openssl rsautl -decrypt -in flag.enc -inkey private.pem
+openssl rsautl -decrypt -inkey private.pem -in flag.enc
 ```
