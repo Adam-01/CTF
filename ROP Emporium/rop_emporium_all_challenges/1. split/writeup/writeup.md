@@ -1,7 +1,8 @@
 # split
 
-用ROPgadget找到把放置在栈上的system函数的第一个参数弹出到rdi的汇编代码，传参顺序是rdi, rsi, rdx, rcx...
+用ROPgadget找到把放置在栈上的system函数的第一个参数弹出到rdi的汇编代码，传参顺序是rdi, rsi, rdx, rcx...  
 
+Exp:
 ```python
 import pwn
   
