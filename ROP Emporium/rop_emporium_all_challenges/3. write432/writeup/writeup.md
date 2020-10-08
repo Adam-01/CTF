@@ -2,7 +2,7 @@
 
 > 我们需要执行print_file("flag.txt")，32位要用栈传递参数。
 
-1. 我们把bss的地址传给%edi，把'flag'传给%ebp，然后把%ebp（'flag'）传递给%edi所指向的地址，即bss的首地址。
+1. 把bss的首地址传给%edi，把'flag'传给%ebp，然后把%ebp（'flag'）传递给%edi所指向的地址，即bss的首地址。
 
 2. 同理，把bss+4的地址传给%edi，把'.txt'传给%ebp，然后把%ebp（.txt）传递给%edi所指向的地址，即bss+4。
 
