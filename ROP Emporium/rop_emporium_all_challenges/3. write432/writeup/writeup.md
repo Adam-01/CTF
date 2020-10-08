@@ -4,9 +4,9 @@
 
 1. 把bss的首地址传给%edi，把'flag'传给%ebp，然后把%ebp（'flag'）传递给%edi所指向的地址，即bss的首地址。
 
-2. 同理，把bss+4的地址传给%edi，把'.txt'传给%ebp，然后把%ebp（.txt）传递给%edi所指向的地址，即bss+4。
+2. 同理，把bss+4的地址传给%edi，把'.txt'传给%ebp，然后把%ebp（'.txt'）传递给%edi所指向的地址，即bss+4。
 
-3. 同理，把bss+8的地址传给%edi，把'\0'传给%ebp，然后把%ebp（\0）传递给%edi所指向的地址，即bss+8。
+3. 同理，把bss+8的地址传给%edi，把'\0'传给%ebp，然后把%ebp（'\0'）传递给%edi所指向的地址，即bss+8。
 
 4. 最后，调用print_file()，参数地址设置在bss段首地址。
 
