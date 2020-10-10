@@ -2,7 +2,6 @@
 
 > e=3，直接暴力破解i
 
-Github不支持公式：  
 由$$m^e \equiv c(mod\,\,n)$$得，$$m ^ e = c + i * n,i \in N$$  
 
 Exp:
