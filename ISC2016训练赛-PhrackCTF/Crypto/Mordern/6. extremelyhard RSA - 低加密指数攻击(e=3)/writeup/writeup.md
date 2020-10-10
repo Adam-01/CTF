@@ -2,7 +2,14 @@
 
 > e=3，直接暴力破解i
 
-由$$m^e \equiv c(mod\,\,n)$$得，$$m ^ e = c + i * n,i \in N$$  
+由
+![1](https://latex.codecogs.com/svg.latex?m^e \equiv c(mod\,\,n))
+得
+![2](https://latex.codecogs.com/svg.latex?m ^ e = c + i * n,i \in N)
+
+
+Github不支持：  
+~~由$$m^e \equiv c(mod\,\,n)$$得，$$m ^ e = c + i * n,i \in N$$~~  
 
 Exp:
 ```python  
