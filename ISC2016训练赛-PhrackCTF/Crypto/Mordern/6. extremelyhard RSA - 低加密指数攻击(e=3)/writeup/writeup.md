@@ -3,9 +3,9 @@
 > e=3，直接暴力破解i
 
 由
-![1](https://latex.codecogs.com/svg.latex?m^e \equiv c(mod\,\,n))
+![1](https://latex.codecogs.com/svg.latex?m^e\equivc(mod\,\,n))
 得
-![2](https://latex.codecogs.com/svg.latex?m ^ e = c + i * n,i \in N)
+![2](https://latex.codecogs.com/svg.latex?m^e=c+i*n,i\inN)
 
 
 Github不支持：  
