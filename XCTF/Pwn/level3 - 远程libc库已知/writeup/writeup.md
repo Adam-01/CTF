@@ -1,6 +1,8 @@
-# level3
+# level3 - 远程libc库已知
 
-先用write函数打印出write在got.plt记录的真实地址，回到main函数开头，然后用write真实地址减去libc中write的偏移量，得到libc的基址，然后再用libc基址加上system函数和'/bin/sh'的偏移量，等于system和字符串在进程中的真实地址。  
+先用write函数打印出write在got.plt记录的真实地址，回到main函数开头，  
+
+然后用write真实地址减去libc中write的偏移量，得到libc的基址，然后再用libc基址加上system函数和'/bin/sh'的偏移量，等于system和字符串在进程中的真实地址。  
 
 Exp:
 ```python
