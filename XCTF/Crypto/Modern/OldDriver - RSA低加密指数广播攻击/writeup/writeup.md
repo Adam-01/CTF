@@ -1,5 +1,7 @@
 # OldDriver - 低加密指数广播攻击
 
+适用于加密指数e较小且相同，有若干组密文c和模数n。  
+
 ```python
 from struct import pack, unpack
 import zlib
@@ -16,12 +18,12 @@ def my_parse_number(number):
     return ''.join(erg)
 
 def extended_gcd(a, b):
-    x,y = 0, 1
+    x, y = 0, 1
     lastx, lasty = 1, 0
     while b:
-        a, (q, b) = b, divmod(a,b)
-        x, lastx = lastx-q*x, x
-        y, lasty = lasty-q*y, y
+        a, (q, b) = b, divmod(a, b)
+        x, lastx = lastx - q * x, x
+        y, lasty = lasty - q * y, y
     return (lastx, lasty, a)
 
 def chinese_remainder_theorem(items):
@@ -33,10 +35,10 @@ def chinese_remainder_theorem(items):
     m = N // n
     r, s, d = extended_gcd(n, m)
     if d != 1:
-      N=N/n
+      N=N / n
       continue
       #raise "Input not pairwise co-prime"
-    result += a*s*m
+    result += a * s * m
   return result % N, N
 
 sessions=[{"c": 7366067574741171461722065133242916080495505913663250330082747465383676893970411476550748394841437418105312353971095003424322679616940371123028982189502042, "e": 10, "n": 25162507052339714421839688873734596177751124036723831003300959761137811490715205742941738406548150240861779301784133652165908227917415483137585388986274803},
@@ -62,5 +64,3 @@ e=session['e']
 realnum = gmpy2.iroot(x, e)[0].digits()
 print(my_parse_number(int(realnum)))
 ```
-
-网上的脚本，解低加密指数广播攻击题，原理还不懂。  
