@@ -5,7 +5,7 @@ pwn.context(arch='amd64', os='linux', log_level='debug')
 p = pwn.process('./babystack')
 #p = pwn.remote('220.249.52.133', 38263)
 e = pwn.ELF('./babystack')
-libc = pwn.ELF('./libc-2.23.so')
+#libc = pwn.ELF('./libc-2.23.so')
 
 #start_addr = pwn.p64(e.sym['__libc_start_main']) --> WRONG!
 main_addr = pwn.p64(0x400908)
